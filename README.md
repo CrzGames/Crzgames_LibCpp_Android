@@ -54,7 +54,7 @@ SDL2_mixer :
 ## Documentation pour construire les librairies, permet de récupérer les .h / .a / .so des librairies (pour mettre à jour les librairies si il faut) :
 ### Setup Environment
 1. Download and Install CMake >= 3.28.1 : https://cmake.org/download/ and add in PATH ENVIRONMENT
-2. Download and Install NDK LTS version >= r26b : https://developer.android.com/ndk/downloads?hl=fr
+2. Download and Install NDK LTS version >= r27c : https://developer.android.com/ndk/downloads?hl=fr
    
 <br />
 
