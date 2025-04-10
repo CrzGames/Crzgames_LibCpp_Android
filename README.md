@@ -102,7 +102,7 @@ RCENet :
 3. Récupérer la librairie (librcenet.a) depuis le dossier : ./android/arch/lib/ du dossier télécharger précédemment
 <br /><br />
 
-OpenSSL : 
+OpenSSL (construire depuis Linux) : 
 1. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
 ```bash
 # Changer la version de la branche de OpenSSL si besoin
