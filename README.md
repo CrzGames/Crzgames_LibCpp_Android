@@ -85,7 +85,7 @@ SDL : <br />
 3. Il faudra modifier dans les projets android : app/src/main/java/SDLActivity.java, ligne : 60. Il faudra modifier SDL_MAJOR_VERSION, SDL_MINOR_VERSION et SDL_MICRO_VERSION par rapport à la version qu'ont n'as récupérer
 4. Il sera compiler avec pendant la construction, obligatoire de faire cela a cause de la contrainte du wrapper SDL pour Android JNI <br /><br />
 
-SDL2_ttf / SDL2_mixer : <br />
+SDL2_ttf / SDL2_mixer / SDL2_image : <br />
 1. Il faudra également modifier le début de ce script concernant les versions de SDL2, SDL2_* que vous voulez construire !
 2. Ce placer à la racine du dossier de ce repository github.
 3. Run command :
