@@ -78,7 +78,7 @@ cmake \
 <br /><br />
 
 
-### Librairies à récupérer :
+### Librairies à récupérer (via Linux) :
 SDL : <br />
 1. Récupérer le code source COMPLET de la dernière version Release sur github (le fichier .tar.gz IMPORTANT).
 2. Placer le repository entier dans le projet android studio depuis : app/jni/SDL (le dossier doit être nommé 'SDL' obligatoirement par rapport au CMake qui utilise le projet android)
@@ -102,7 +102,7 @@ RCENet :
 3. Récupérer la librairie (librcenet.a) depuis le dossier : ./android/arch/lib/ du dossier télécharger précédemment
 <br /><br />
 
-OpenSSL (construire depuis Linux) : 
+OpenSSL : 
 1. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
 ```bash
 # Changer la version de la branche de OpenSSL si besoin
