@@ -116,19 +116,19 @@ export ANDROID_NDK_ROOT=/home/debian/ndk/r27c
 PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 
 # Construire la librairie pour chaque architecture diffèrente :
-./Configure android-arm64 -D__ANDROID_API__=23 -fPIC
+./Configure android-arm64 -D__ANDROID_API__=24 -fPIC
 make install DESTDIR=./build-arm64-v8a
 make clean
 
-./Configure android-arm -D__ANDROID_API__=23 -fPIC
+./Configure android-arm -D__ANDROID_API__=24 -fPIC
 make install DESTDIR=./build-armeabi-v7a
 make clean
 
-./Configure android-x86 -D__ANDROID_API__=23 -fPIC
+./Configure android-x86 -D__ANDROID_API__=24 -fPIC
 make install DESTDIR=./build-x86
 make clean
 
-./Configure android-x86_64 -D__ANDROID_API__=23 -fPIC
+./Configure android-x86_64 -D__ANDROID_API__=24 -fPIC
 make install DESTDIR=./build-x86_64
 make clean
 ```
