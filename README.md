@@ -131,4 +131,10 @@ make clean
 ./Configure android-x86_64 -D__ANDROID_API__=24 -fPIC
 make install DESTDIR=./build-x86_64
 make clean
+
+
+# test LIB STATIC :
+./Configure android-arm64 -D__ANDROID_API__=24 -fPIC -static no-shared
+make install DESTDIR=./build-arm64-v8a
+make clean
 ```
