@@ -103,18 +103,29 @@ RCENet :
 <br /><br />
 
 OpenSSL : 
-1. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
+1. Télécharger et extraire le NDK :
+```bash
+cd ~
+wget https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
+unzip android-ndk-r27c-linux.zip
+mv android-ndk-r27c ndk
+```
+
+2. Définir les variables d’environnement dans ~/.bashrc ou ~/.profile :
+```bash
+export ANDROID_NDK_ROOT=$HOME/ndk
+export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+```
+
+3. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
 ```bash
 # Changer la version de la branche de OpenSSL si besoin
 git clone -b openssl-3.5.0 https://github.com/openssl/openssl.git
 cd openssl/
 ```
-2. Construire OpenSSL pour chaque architecture Android :
-```bash
-# Set (il faut surtout modifier le path de ANDROID_NDK_ROOT pour pointer vers le repertoire racine du NDK pour Android)
-export ANDROID_NDK_ROOT=/home/debian/ndk/r27c
-PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 
+4. Construire OpenSSL pour chaque architecture Android :
+```bash
 # Construire la librairie pour chaque architecture diffèrente :
 ./Configure android-arm64 -D__ANDROID_API__=24 -fPIC
 make install DESTDIR=./build-arm64-v8a
