@@ -101,16 +101,22 @@ RCENet :
 <br /><br />
 
 OpenSSL : 
-1. Télécharger et extraire le NDK :
+1. Installer les outils nécessaire pour les diffèrentes étapes (zip and make) :
 ```bash
+sudo apt update
+sudo apt install build-essential
 sudo apt install zip
+```
+
+2. Télécharger et extraire le NDK :
+```bash
 cd ~
 wget https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
 unzip android-ndk-r27c-linux.zip
 mv android-ndk-r27c ndk
 ```
 
-2. Définir les variables d’environnement dans ~/.bashrc ou ~/.profile :
+3. Définir les variables d’environnement dans ~/.bashrc ou ~/.profile :
 ```bash
 nano ~/.bashrc
 export ANDROID_NDK_ROOT=$HOME/ndk
@@ -118,14 +124,14 @@ export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
 source ~/.bashrc
 ```
 
-3. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
+4. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
 ```bash
 # Changer la version de la branche de OpenSSL si besoin
 git clone -b openssl-3.5.0 https://github.com/openssl/openssl.git
 cd openssl/
 ```
 
-4. Construire OpenSSL pour chaque architecture Android :
+5. Construire OpenSSL pour chaque architecture Android :
 ```bash
 # Construire la librairie pour chaque architecture diffèrente :
 ./Configure android-arm64 -D__ANDROID_API__=24 -fPIC
