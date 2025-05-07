@@ -103,6 +103,7 @@ RCENet :
 OpenSSL : 
 1. Télécharger et extraire le NDK :
 ```bash
+sudo apt install zip
 cd ~
 wget https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
 unzip android-ndk-r27c-linux.zip
