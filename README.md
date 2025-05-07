@@ -112,8 +112,10 @@ mv android-ndk-r27c ndk
 
 2. Définir les variables d’environnement dans ~/.bashrc ou ~/.profile :
 ```bash
+nano ~/.bashrc
 export ANDROID_NDK_ROOT=$HOME/ndk
 export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+source ~/.bashrc
 ```
 
 3. Il faudra cloner le github de OpenSSL officiel à partir d'une branche spécifique pour cibler la version comme ceci :
