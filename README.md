@@ -13,10 +13,8 @@ Bibliothèque statique : .a <br />
 ### List architectures :
 - armeabi-v7a <br />
 - armeabi-v7a with NEON <br />
-- arm64-v8a <br />
-- x86 <br />
-- x86_64
-  
+- arm64-v8a
+
 ### Conseils : 
 - Pour éviter de construire 2 fois pour l'architecture : armeabi-v7a si on construit à partir de l'API/SDK 23 d'Android ça sera compatible pour NEON et SANS NEON
     
