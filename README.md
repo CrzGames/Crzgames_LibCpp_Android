@@ -135,6 +135,7 @@ cd openssl/
 ```bash
 # Correspond réellement à l'architecture Android : arm64-v8a (arm64)
 ./Configure android-arm64 -D__ANDROID_API__=24 -fPIC no-shared
+make -j$(nproc)
 make install DESTDIR=./openssl-build-arm64-v8a
 # Pour récupérer le dossier include des headers de OpenSSL :
 cd openssl-build-arm64-v8a/usr/local/include/
@@ -144,6 +145,7 @@ make clean
 
 # Correspond réellement à l'architecture Android : armeabi-v7a (arm32)
 ./Configure android-arm -D__ANDROID_API__=24 -fPIC no-shared
+make -j$(nproc)
 make install DESTDIR=./openssl-build-armeabi-v7a
 # Pour récupérer le dossier include des headers de OpenSSL :
 cd openssl-build-armeabi-v7a/usr/local/include/
