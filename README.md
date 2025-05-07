@@ -134,7 +134,13 @@ make clean
 
 
 # test LIB STATIC :
+# Correspond réellement à l'architecture : arm64-v8a (arm64)
 ./Configure android-arm64 -D__ANDROID_API__=24 -fPIC static no-shared
 make install DESTDIR=./build-arm64-v8a
+make clean
+
+# Correspond réellement à l'architecture : armeabi-v7a (arm32)
+./Configure android-arm -D__ANDROID_API__=24 -fPIC
+make install DESTDIR=./build-armeabi-v7a
 make clean
 ```
