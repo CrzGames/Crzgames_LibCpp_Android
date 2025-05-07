@@ -133,32 +133,21 @@ cd openssl/
 
 5. Construire OpenSSL pour chaque architecture Android :
 ```bash
-# Construire la librairie pour chaque architecture diffèrente :
-./Configure android-arm64 -D__ANDROID_API__=24 -fPIC
-make install DESTDIR=./build-arm64-v8a
-make clean
-
-./Configure android-arm -D__ANDROID_API__=24 -fPIC
-make install DESTDIR=./build-armeabi-v7a
-make clean
-
-./Configure android-x86 -D__ANDROID_API__=24 -fPIC
-make install DESTDIR=./build-x86
-make clean
-
-./Configure android-x86_64 -D__ANDROID_API__=24 -fPIC
-make install DESTDIR=./build-x86_64
-make clean
-
-
-# test LIB STATIC :
-# Correspond réellement à l'architecture : arm64-v8a (arm64)
+# Correspond réellement à l'architecture Android : arm64-v8a (arm64)
 ./Configure android-arm64 -D__ANDROID_API__=24 -fPIC no-shared
 make install DESTDIR=./openssl-build-arm64-v8a
+# Pour récupérer le dossier include des headers de OpenSSL :
+cd openssl-build-arm64-v8a/usr/local/include/
+# Pour récupérer les librairies static OpenSSL construite (libcrypto.a / libssl.a) :
+cd openssl-build-arm64-v8a/usr/local/lib/
 make clean
 
-# Correspond réellement à l'architecture : armeabi-v7a (arm32)
+# Correspond réellement à l'architecture Android : armeabi-v7a (arm32)
 ./Configure android-arm -D__ANDROID_API__=24 -fPIC no-shared
 make install DESTDIR=./openssl-build-armeabi-v7a
+# Pour récupérer le dossier include des headers de OpenSSL :
+cd openssl-build-armeabi-v7a/usr/local/include/
+# Pour récupérer les librairies static OpenSSL construite (libcrypto.a / libssl.a) :
+cd openssl-build-armeabi-v7a/usr/local/lib/
 make clean
 ```
