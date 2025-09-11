@@ -153,3 +153,28 @@ cd openssl-build-armeabi-v7a/usr/local/include/
 cd openssl-build-armeabi-v7a/usr/local/lib/
 make clean
 ```
+
+FFMPEG (on macos for android): 
+3. :
+```bash
+../configure \
+  --prefix=../install-android \
+  --target-os=android --host-os=darwin-x86_64 \
+  --enable-cross-compile --arch=${ARCH} --cpu=${CPU} \
+  --enable-jni --enable-mediacodec \
+  --disable-doc --disable-programs --enable-small \
+  --disable-autodetect --disable-everything \
+  --disable-avfilter --disable-avdevice \
+  --enable-avcodec --enable-avformat --enable-avutil --enable-swresample --enable-swscale \
+  --enable-protocol=file \
+  --enable-demuxer=mov,matroska,webm,mp3,ogg,wav,flac \
+  --enable-parser=h264,hevc,aac,mp3,opus,vorbis,flac \
+  --enable-decoder=h264,hevc,aac,mp3,opus,vorbis,flac,pcm_s16le,pcm_f32le \
+  --sysroot=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/sysroot \
+  --sysinclude=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/ \
+  --cc=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/${TOOLCHAIN_ARCH}24-clang \
+  --cxx=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/${TOOLCHAIN_ARCH}24-clang++ \
+  --strip=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-strip \
+  --extra-cflags="-fPIC" \
+  --extra-cxxflags="-fPIC"
+```
