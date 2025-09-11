@@ -159,12 +159,11 @@ FFMPEG (on macos for android):
 ```bash
 ../configure \
   --prefix=../install-android \
-  --target-os=android --host-os=darwin-x86_64 \
+  --target-os=android --host-os=darwin-x86_64 --enable-shared \
   --enable-cross-compile --arch=${ARCH} --cpu=${CPU} \
   --enable-jni --enable-mediacodec \
   --disable-doc --disable-programs --enable-small \
   --disable-autodetect --disable-everything \
-  --disable-avfilter --disable-avdevice \
   --enable-avcodec --enable-avformat --enable-avutil --enable-swresample --enable-swscale \
   --enable-protocol=file \
   --enable-demuxer=mov,matroska,webm,mp3,ogg,wav,flac \
@@ -174,7 +173,5 @@ FFMPEG (on macos for android):
   --sysinclude=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/ \
   --cc=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/${TOOLCHAIN_ARCH}24-clang \
   --cxx=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/${TOOLCHAIN_ARCH}24-clang++ \
-  --strip=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-strip \
-  --extra-cflags="-fPIC" \
-  --extra-cxxflags="-fPIC"
+  --strip=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-strip
 ```
