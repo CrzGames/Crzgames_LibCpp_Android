@@ -25,23 +25,6 @@ https://developer.android.com/ndk/guides/cmake?hl=fr
 
 
 ## Documentation des dépendances pour chacune des librairies :
-RCENet : 
-  1. dossier include (rcenet) -> à linker
-  2. rcenet.a -> à linker <br /><br />
-
-SDL2 (IMPORTANT TRES SPECIFIC) : 
-  1. Récupérer le code source COMPLET de la dernière version Release sur github.
-  2. Placer le repository entier dans le projet android studio depuis : app/jni/SDL
-  3. Il sera compiler avec pendant la construction, obligatoire de faire cela a cause de la contrainte du wrappre SDL pour Android JNI <br /><br />
-
-SDL2_ttf : 
-  1. dossier include (SDL2_ttf) -> à linker
-  3. libSDL2_ttf.so, libharfbuzz.a, libfreetype.a -> à linker <br /><br />
-
-SDL2_mixer : 
-  1. dossier include (SDL2_mixer) -> à linker
-  3. libSDL2_mixer.so -> à linker <br /><br />
- 
  OpenSSL : 
   1. dossier include (openssl) -> à linker
   3. libcrypto.so libssl.so -> à linker
@@ -50,12 +33,6 @@ SDL2_mixer :
 
 
 ## Documentation pour construire les librairies, permet de récupérer les .h / .a / .so des librairies (pour mettre à jour les librairies si il faut) :
-### Setup Environment
-1. Download and Install CMake >= 3.28.1 : https://cmake.org/download/ and add in PATH ENVIRONMENT
-2. Download and Install NDK LTS version >= r27c : https://developer.android.com/ndk/downloads?hl=fr
-   
-<br />
-
 ### Build the library 
 1. Create directory
 ```bash
@@ -77,29 +54,6 @@ cmake \
 
 
 ### Librairies à récupérer (via Linux) :
-SDL : <br />
-1. Récupérer le code source COMPLET de la dernière version Release sur github (le fichier .tar.gz IMPORTANT).
-2. Placer le repository entier dans le projet android studio depuis : app/jni/SDL (le dossier doit être nommé 'SDL' obligatoirement par rapport au CMake qui utilise le projet android)
-3. Il faudra modifier dans les projets android : app/src/main/java/SDLActivity.java, ligne : 60. Il faudra modifier SDL_MAJOR_VERSION, SDL_MINOR_VERSION et SDL_MICRO_VERSION par rapport à la version qu'ont n'as récupérer
-4. Il sera compiler avec pendant la construction, obligatoire de faire cela a cause de la contrainte du wrapper SDL pour Android JNI <br /><br />
-
-SDL2_ttf / SDL2_mixer / SDL2_image : <br />
-1. Il faudra également modifier le début de ce script concernant les versions de SDL2, SDL2_* que vous voulez construire !
-2. Ce placer à la racine du dossier de ce repository github.
-3. Run command :
-```bash
-  # --api (optional) : use minimal API Android, default api = 23
-  ./generate-lib-sdl.sh --prefix=/home/debian/build --ndkdir=/home/debian/android-ndk/android-ndk-r27c --api=36
-```
-4. Récupérer les librairies dans : /home/debian/build
-<br /><br />
-
-RCENet :
-1. Télécharger le repository de la dernière release : https://github.com/corentin35000/Crzgames_RCENet/releases (librcenet-android.zip)
-2. Récupérer les fichiers include dans le dossier : ./android/arch/include/ du dossier télécharger précédemment
-3. Récupérer la librairie (librcenet.a) depuis le dossier : ./android/arch/lib/ du dossier télécharger précédemment
-<br /><br />
-
 OpenSSL : 
 1. Installer les outils nécessaire pour les diffèrentes étapes (zip and make) :
 ```bash
